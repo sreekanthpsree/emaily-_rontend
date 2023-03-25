@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import Header from "./components/Header";
+import { connect } from "react-redux";
+import * as actions from "../src/actions";
+import Landing from "./components/Landing";
+const Dashboard = () => {
+  return <h2>Dashboard</h2>;
+};
+const SurveryNew = () => {
+  return <h2>SureveyNew</h2>;
+};
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    props.fetchUser();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/surveys" component={Dashboard}></Route>
+          <Route path="/surveys/new" component={SurveryNew}></Route>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
 
-export default App;
+export default connect(null, actions)(App);
