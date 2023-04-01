@@ -1,0 +1,19 @@
+.thank-you-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+p {
+  font-size: 2rem;
+  color: #666;
+}

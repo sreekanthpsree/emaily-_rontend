@@ -4,9 +4,10 @@ import Header from "./components/Header";
 import { connect } from "react-redux";
 import * as actions from "../src/actions";
 import Landing from "./components/Landing";
-const Dashboard = () => {
-  return <h2>Dashboard</h2>;
-};
+import ThankYouPage from "./components/Thankyou";
+import Dashboard from "./components/Dashboard";
+import SurveyNew from "./components/surveys/SurveyNew";
+
 const SurveryNew = () => {
   return <h2>SureveyNew</h2>;
 };
@@ -22,7 +23,8 @@ function App(props) {
           <Header />
           <Route exact path="/" component={Landing} />
           <Route exact path="/surveys" component={Dashboard}></Route>
-          <Route path="/surveys/new" component={SurveryNew}></Route>
+          <Route path="/surveys/new" component={SurveyNew}></Route>
+          <Route path="/surveys/thanks" component={ThankYouPage}></Route>
         </div>
       </BrowserRouter>
     </div>
